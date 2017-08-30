@@ -7,22 +7,33 @@
   <title>Flower app</title>
 </head>
 <body>
-<h1>Flower app for Hippotec test</h1>
+<h1>Hello Welcome to the Flower Guide</h1>
 
   <div ng-controller='flowerController' class="container">
     <div class="row">
-    <div ng-repeat="item in list.data" class="col">
+    <!-- <div ng-repeat="item in list.data"> -->
+    <div ng-repeat="item in flowers[0].data">
       <h3>Name: {{item.name | uppercase}}</h3>
          <img ng-src="{{item['image link']}}" style="width:128px;height:128px;">
 
       <h4>Best season: {{item['best season']}}</h4>
+
+        <div class="container" ng-controller='translateController as translatedItem'>
+         <button ng-click="translatePage()" type="button" class="btn btn-success">Translate into Hebrew</button>
+        
+         <h3>Name: {{translatedItem.he| uppercase}}</h3>
+         
+        <h4>Best season: {{item['best season']}}</h4>
+
+
+
        <hr>
     </div>
     </div>
   </div>
 
-  <div class="container" ng-controller='translateController'>
-    <button ng-click="translatePage()" type="button" class="btn btn-success">Translate into Hebrew</button>
+
+    <div>
    </div>
 
 
