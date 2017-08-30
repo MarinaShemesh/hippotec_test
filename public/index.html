@@ -3,20 +3,31 @@
 <head>
   <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <title>Flower app</title>
 </head>
 <body>
 <h1>Flower app for Hippotec test</h1>
+
   <div ng-controller='flowerController' class="container">
-    <div ng-repeat="item in list.data" class="row">
-      <h4 >Name: {{item.name | uppercase}}</h4>
-      
+    <div class="row">
+    <div ng-repeat="item in list.data" class="col">
+      <h3>Name: {{item.name | uppercase}}</h3>
+         <img ng-src="{{item['image link']}}" style="width:128px;height:128px;">
+
       <h4>Best season: {{item['best season']}}</h4>
-      <img ng-src="{{item['image link']}}" style="width:128px;height:128px;">
        <hr>
     </div>
+    </div>
   </div>
+
+  <div class="container" ng-controller='translateController'>
+    <button ng-click="translatePage()" type="button" class="btn btn-success">Translate into Hebrew</button>
+   </div>
+
+
  <script src="../angular/angular.js"></script>
  <script src="app.js"></script>
+ <script src="translateController.js"></script>
 </body>
 </html>
